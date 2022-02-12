@@ -16,7 +16,7 @@ namespace DictionaryApiNet
         [JsonProperty("phonetics")]
         public Phonetic[] Phonetics { get; set; }
 
-        [JsonProperty("origin")]
+        [JsonProperty("origin", NullValueHandling = NullValueHandling.Ignore)]
         public string Origin { get; set; }
 
         [JsonProperty("meanings")]
@@ -39,14 +39,14 @@ namespace DictionaryApiNet
         [JsonProperty("definition")]
         public string DefinitionText { get; set; }
 
-        [JsonProperty("example")]
-        public string Example { get; set; }
-
         [JsonProperty("synonyms")]
-        public object[] Synonyms { get; set; }
+        public string[] Synonyms { get; set; }
 
         [JsonProperty("antonyms")]
         public object[] Antonyms { get; set; }
+
+        [JsonProperty("example", NullValueHandling = NullValueHandling.Ignore)]
+        public string Example { get; set; }
     }
 
     public class Phonetic
